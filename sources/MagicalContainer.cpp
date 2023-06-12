@@ -63,7 +63,6 @@ namespace ariel {
 
     void MagicalContainer::addElement(int element) {
         if (find(mainElements.begin(), mainElements.end(), element) != mainElements.end()) {
-            cout << "Element already exists, do not add it again" << endl;
             return;
         }
         // Update the auxiliary containers after adding a new element to the mainElements vector.
@@ -78,7 +77,7 @@ namespace ariel {
     void MagicalContainer::removeElement(int element) {
         auto it = find(mainElements.begin(), mainElements.end(), element);
         if (it == mainElements.end()) {
-            throw runtime_error("Invalid argument");
+            throw runtime_error("Error : Invalid argument");
         }
         // Update the auxiliary containers after removing an element from the mainElements vector
         mainElements.erase(it);
@@ -86,7 +85,7 @@ namespace ariel {
         addAscendingElements();
         addSideCrossElements();
         addPrimeElements();
-        .
+        
     }
     // Return the size of the mainElements vector.
     int MagicalContainer::size() const {
@@ -109,7 +108,7 @@ namespace ariel {
 
     MagicalContainer::AscendingIterator& MagicalContainer::AscendingIterator::operator++() {
         if (ascendingIterator == container.ascendingElements.end()) {
-            throw runtime_error("Out of range");
+            throw runtime_error("Error :Out of range");
         }
         ++ascendingIterator;
         ++index;
@@ -129,7 +128,7 @@ namespace ariel {
     // Check if two iterators are pointing to different indices.
     bool MagicalContainer::AscendingIterator::operator!=(const AscendingIterator& other) const {
         if (&container != &other.container) {
-            throw invalid_argument("Iterators are pointing at different containers");
+            throw invalid_argument("Error : Not the same containers");
         }
         return index != other.index;
         
@@ -138,7 +137,7 @@ namespace ariel {
     // Check if the iterator is pointing to an index greater than the other iterator's index.
     bool MagicalContainer::AscendingIterator::operator>(const AscendingIterator& other) const {
         if (&container != &other.container) {
-            throw invalid_argument("Iterators are pointing at different containers");
+            throw invalid_argument("Error : Not the same containers");
         }
         return index > other.index;
         
@@ -147,7 +146,7 @@ namespace ariel {
     // Check if the iterator is pointing to an index less than the other iterator's index.
     bool MagicalContainer::AscendingIterator::operator<(const AscendingIterator& other) const {
         if (&container != &other.container) {
-            throw invalid_argument("Iterators are pointing at different containers");
+            throw invalid_argument("Error : Not the same containers");
         }
         return index < other.index;
         
@@ -156,7 +155,7 @@ namespace ariel {
     // Assign the iterator and index values from another iterator.
     MagicalContainer::AscendingIterator& MagicalContainer::AscendingIterator::operator=(const AscendingIterator& other) {
         if (&container != &other.container) {
-            throw runtime_error("Iterators are pointing at different containers");
+            throw runtime_error("Error : Not the same containers");
         }
 
         ascendingIterator = other.ascendingIterator;
@@ -211,7 +210,7 @@ namespace ariel {
     // Check if two iterators are pointing to the same index.
     bool MagicalContainer::SideCrossIterator::operator==(const SideCrossIterator& other) const {
         if (&container != &other.container) {
-            throw invalid_argument("Iterators are pointing at different containers");
+            throw invalid_argument("Error : Not the same containers");
         }
         return index == other.index;
         
@@ -220,7 +219,7 @@ namespace ariel {
     // Check if two iterators are pointing to different indices.
     bool MagicalContainer::SideCrossIterator::operator!=(const SideCrossIterator& other) const {
         if (&container != &other.container) {
-            throw invalid_argument("Iterators are pointing at different containers");
+            throw invalid_argument("Error : Not the same containers");
         }
         return index != other.index;
         
@@ -229,7 +228,7 @@ namespace ariel {
     // Check if the iterator is pointing to an index greater than the other iterator's index.
     bool MagicalContainer::SideCrossIterator::operator>(const SideCrossIterator& other) const {
         if (&container != &other.container) {
-            throw invalid_argument("Iterators are pointing at different containers");
+            throw invalid_argument("Error : Not the same containers");
         }
         return index > other.index;
         
@@ -238,7 +237,7 @@ namespace ariel {
     // Check if the iterator is pointing to an index less than the other iterator's index.
     bool MagicalContainer::SideCrossIterator::operator<(const SideCrossIterator& other) const {
         if (&container != &other.container) {
-            throw invalid_argument("Iterators are pointing at different containers");
+            throw invalid_argument("Error : Not the same containers");
         }
         return index < other.index;
         
@@ -247,7 +246,7 @@ namespace ariel {
     // Assign the iterator and index values from another iterator.
     MagicalContainer::SideCrossIterator& MagicalContainer::SideCrossIterator::operator=(const SideCrossIterator& other) {
         if (&container != &other.container) {
-            throw runtime_error("Iterators are pointing at different containers");
+            throw runtime_error("Error : Not the same containers");
         }
 
         sideCrossIterator = other.sideCrossIterator;
@@ -301,7 +300,7 @@ namespace ariel {
     // Check if two iterators are pointing to the same index.
     bool MagicalContainer::PrimeIterator::operator==(const PrimeIterator& other) const {
         if (&container != &other.container) {
-            throw invalid_argument("Iterators are pointing at different containers");
+            throw invalid_argument("Error : Not the same containers");
         }
         return index == other.index;
         
@@ -310,7 +309,7 @@ namespace ariel {
     // Check if two iterators are pointing to different indices.
     bool MagicalContainer::PrimeIterator::operator!=(const PrimeIterator& other) const {
         if (&container != &other.container) {
-            throw invalid_argument("Iterators are pointing at different containers");
+            throw invalid_argument("Error : Not the same containers");
         }
         return index != other.index;
         
@@ -319,7 +318,7 @@ namespace ariel {
     // Check if the iterator is pointing to an index greater than the other iterator's index.
     bool MagicalContainer::PrimeIterator::operator>(const PrimeIterator& other) const {
         if (&container != &other.container) {
-            throw invalid_argument("Iterators are pointing at different containers");
+            throw invalid_argument("Error : Not the same containers");
         }
         return index > other.index;
         
@@ -328,7 +327,7 @@ namespace ariel {
     // Check if the iterator is pointing to an index less than the other iterator's index.
     bool MagicalContainer::PrimeIterator::operator<(const PrimeIterator& other) const {
         if (&container != &other.container) {
-            throw invalid_argument("Iterators are pointing at different containers");
+            throw invalid_argument("Error : Not the same containers");
         }
         return index < other.index;
         
@@ -337,7 +336,7 @@ namespace ariel {
     // Assign the iterator and index values from another iterator.
     MagicalContainer::PrimeIterator& MagicalContainer::PrimeIterator::operator=(const PrimeIterator& other) {
         if (&container != &other.container) {
-            throw runtime_error("Iterators are pointing at different containers");
+            throw runtime_error("Error : Not the same containers");
         }
 
         primeIterator = other.primeIterator;
